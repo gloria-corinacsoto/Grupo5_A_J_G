@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>III Feria Virtual La Salle Business Match 2027</title>
+
+  <!-- Bootstrap (rejilla, menú y ventana de inscripción) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fuente Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Nuestros estilos (van DESPUÉS de Bootstrap para poder cambiarlo) -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ================= MENÚ ================= -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio">LSBM 2027</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#programa">Programa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#foros">Foros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#centros">Centros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reels">Reels</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="boton boton-claro" href="#">Iniciar sesión</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ CABECERA + CONTADOR ============ -->
+  <header id="inicio" class="cabecera">
+    <div class="container">
+      <h1>III Feria Virtual<br>La Salle Business Match 2027</h1>
+      <p class="lead mt-3">Feria virtual de empresas simuladas</p>
+
+      <!-- El contador se rellena con js/script.js -->
+      <div class="contador" id="contador">
+        <div class="caja-tiempo"><span class="numero" id="dias">00</span><span class="etiqueta">Días</span></div>
+        <div class="caja-tiempo"><span class="numero" id="horas">00</span><span class="etiqueta">Horas</span></div>
+        <div class="caja-tiempo"><span class="numero" id="minutos">00</span><span class="etiqueta">Minutos</span></div>
+        <div class="caja-tiempo"><span class="numero" id="segundos">00</span><span class="etiqueta">Segundos</span></div>
+      </div>
+
+      <!-- Estos botones abren la ventana de inscripción -->
+      <button class="boton boton-claro me-2" data-bs-toggle="modal" data-bs-target="#inscripcion">Soy empresa</button>
+      <button class="boton boton-claro" data-bs-toggle="modal" data-bs-target="#inscripcion">Soy visitante</button>
+    </div>
+  </header>
+
+  <!-- ================= PROGRAMA (horizontal) ================= -->
+  <section id="programa" class="seccion">
+    <div class="container">
+      <h2 class="titulo-seccion">Programa</h2>
+      <ol class="linea-tiempo">
+        <li><span class="hora">9:00</span><h3>Acto inaugural</h3></li>
+        <li><span class="hora">9:30</span><h3>Conferencia: emprender</h3></li>
+        <li><span class="hora">10:00</span><h3>Inicio de la feria</h3></li>
+        <li><span class="hora">17:00</span><h3>Fin de la feria</h3></li>
+        <li><span class="hora">17:15</span><h3>Clausura</h3></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= FOROS DE OTROS AÑOS ================= -->
+  <section id="foros" class="seccion fondo-gris">
+    <div class="container">
+      <h2 class="titulo-seccion">Foros de otros años</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="tarjeta">
+            <p class="anio">2026</p>
+            <h3 class="h6">Conferencia de emprendimiento</h3>
+            <p class="mb-0">Una charla sobre cómo crear una empresa desde cero.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="tarjeta">
+            <p class="anio">2026</p>
+            <h3 class="h6">Votación de spots</h3>
+            <p class="mb-0">El público eligió el mejor anuncio de las empresas simuladas.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="tarjeta">
+            <p class="anio">2025</p>
+            <h3 class="h6">Mesa redonda de empresas</h3>
+            <p class="mb-0">Las empresas explicaron sus proyectos a los visitantes.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="tarjeta">
+            <p class="anio">2025</p>
+            <h3 class="h6">Networking entre centros</h3>
+            <p class="mb-0">Encuentro para que los alumnos conecten con otros centros.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CENTROS PARTICIPANTES ================= -->
+  <section id="centros" class="seccion">
+    <div class="container">
+      <h2 class="titulo-seccion">Centros participantes</h2>
+      <div class="row g-4">
+        <!-- Para añadir un centro, copia un bloque "col" y cambia el texto -->
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>La Salle Santo Ángel</h3><p>Zaragoza</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>La Salle Irún</h3><p>Guipúzcoa</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>La Salle Inca</h3><p>Mallorca</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>La Salle Valladolid</h3><p>Valladolid</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>La Salle Barcelona</h3><p>Barcelona</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>La Salle Mollerussa</h3><p>Lleida</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>La Salle Virgen del Mar</h3><p>Almería</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+        <div class="col-6 col-lg-3"><div class="tarjeta tarjeta-centro"><h3>EYWA Space</h3><p>Zaragoza</p><a class="boton boton-claro" href="#">Visitar</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REELS + ENLACES A CENTROS ================= -->
+  <section id="reels" class="seccion fondo-gris">
+    <div class="container">
+      <h2 class="titulo-seccion">Reels de los alumnos</h2>
+      <div class="row g-4 justify-content-center">
+        <!-- Cada reel es un recuadro vertical. Más adelante se puede cambiar por un <video> -->
+        <div class="col-8 col-md-4"><div class="reel"><span class="play">▶</span><h3 class="h5">Nuestra empresa</h3><p class="mb-0">Presentación en 1 minuto</p></div></div>
+        <div class="col-8 col-md-4"><div class="reel"><span class="play">▶</span><h3 class="h5">Detrás del stand</h3><p class="mb-0">Cómo preparamos la feria</p></div></div>
+        <div class="col-8 col-md-4"><div class="reel"><span class="play">▶</span><h3 class="h5">Nuestro producto</h3><p class="mb-0">Lo que ofrecemos</p></div></div>
+      </div>
+
+      <!-- Acceso directo a cada centro -->
+      <div class="enlaces-centros">
+        <a class="boton" href="#">La Salle Santo Ángel</a>
+        <a class="boton" href="#">La Salle Irún</a>
+        <a class="boton" href="#">La Salle Inca</a>
+        <a class="boton" href="#">La Salle Valladolid</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NOSOTROS ================= -->
+  <section id="nosotros" class="seccion">
+    <div class="container">
+      <h2 class="titulo-seccion">Nosotros</h2>
+      <p class="col-lg-8 px-0">Somos alumnos del ciclo de Desarrollo de Aplicaciones Multiplataforma (DAM) de La Salle Santo Ángel. Diseñamos y desarrollamos la web de esta feria virtual junto a alumnos de Asistencia a la Dirección.</p>
+    </div>
+  </section>
+
+  <!-- ================= PIE DE PÁGINA ================= -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <strong>La Salle Business Match</strong>
+          <p>Feria virtual de empresas simuladas</p>
+        </div>
+        <div class="col-md-3">
+          <strong>Enlaces</strong><br>
+          <a href="#programa">Programa</a><br>
+          <a href="#centros">Centros</a><br>
+          <a href="#reels">Reels</a>
+        </div>
+        <div class="col-md-3">
+          <strong>Contacto</strong><br>
+          <a href="mailto:LSBM@lasalle.es">LSBM@lasalle.es</a>
+        </div>
+      </div>
+      <p class="text-center mt-4 mb-0">© 2027 La Salle Business Match</p>
+    </div>
+  </footer>
+
+  <!-- ============ VENTANA DE INSCRIPCIÓN (modal de Bootstrap) ============ -->
+  <div class="modal fade" id="inscripcion" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background: var(--amarillo);">
+          <h5 class="modal-title fw-bold">Inscríbete a la feria</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <!-- action = archivo PHP que recibe los datos; method="post" = los envía de forma oculta -->
+        <form id="formulario" action="php/guardar_inscripcion.php" method="post">
+          <div class="modal-body">
+            <!-- El atributo "name" es el nombre con el que PHP recibe cada dato -->
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control mb-3" id="nombre" name="nombre" required>
+            <label class="form-label" for="apellidos">Apellidos</label>
+            <input class="form-control mb-3" id="apellidos" name="apellidos" required>
+            <label class="form-label" for="correo">Correo electrónico</label>
+            <input class="form-control mb-3" id="correo" name="correo" type="email" required>
+            <label class="form-label" for="tipo">Me inscribo como</label>
+            <select class="form-select" id="tipo" name="tipo" required>
+              <option value="visitante">Visitante</option>
+              <option value="empresa">Empresa</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="boton">Enviar inscripción</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (necesario para el menú móvil y la ventana) y nuestro JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
