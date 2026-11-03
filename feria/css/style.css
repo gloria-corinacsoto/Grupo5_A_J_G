@@ -1,0 +1,313 @@
+/* Colores institucionales:
+   azul rgb(0, 63, 119) | amarillo rgb(255, 214, 0) | gris rgb(238, 240, 243) | blanco */
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(28, 36, 48);
+    background-color: white;
+}
+
+/* ---------- MENÚ ---------- */
+header{
+    background-color: rgb(0, 63, 119);
+    color: white;
+    padding: 15px 50px 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* el menú se queda arriba al hacer scroll */
+    top: 0px;
+    z-index: 10;
+}
+
+header p{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+header ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+.EnlaceMenu{
+    color: white;
+    text-decoration: none;
+}
+
+.EnlaceMenu:hover{
+    color: rgb(255, 214, 0);
+}
+
+.Amarillo{
+    color: rgb(255, 214, 0);
+}
+
+/* ---------- BOTONES: esquinas redondeadas y efecto al pasar el ratón ---------- */
+.boton1, .boton2{
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 25px 12px 25px;
+    transition: 0.2s;
+}
+
+/* Azul con texto amarillo */
+.boton1{
+    background-color: rgb(0, 63, 119);
+    color: rgb(255, 214, 0);
+}
+
+.boton1:hover{
+    background-color: rgb(255, 214, 0);
+    color: rgb(0, 63, 119);
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Amarillo con texto azul (para fondos azules) */
+.boton2{
+    background-color: rgb(255, 214, 0);
+    color: rgb(0, 63, 119);
+}
+
+.boton2:hover{
+    background-color: white;
+    color: rgb(0, 63, 119);
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- INICIO: título y contador ---------- */
+#Inicio{
+    background-color: rgb(0, 63, 119);
+    color: white;
+    text-align: center;
+    padding: 90px 20px 70px 20px;
+    border-bottom: 8px solid rgb(255, 214, 0);
+}
+
+#Titulo{
+    font-size: 55px;
+    font-weight: 800;
+}
+
+.TextoInicio{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#Contador{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0px 40px 0px;
+}
+
+.CajaTiempo{
+    background-color: rgb(0, 43, 82);
+    border: 3px solid rgb(255, 214, 0);
+    border-radius: 16px;
+    width: 110px;
+    padding: 15px 0px 15px 0px;
+}
+
+.Numero{
+    display: block;
+    font-size: 45px;
+    font-weight: 800;
+    color: rgb(255, 214, 0);
+}
+
+#BotonesInicio{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* ---------- SECCIONES: mucho espacio entre ellas ---------- */
+.Seccion{
+    padding: 80px 0px 80px 0px;
+}
+
+.FondoGris{
+    background-color: rgb(238, 240, 243);
+}
+
+.TituloSeccion{
+    color: rgb(0, 63, 119);
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 5px solid rgb(255, 214, 0);
+    width: fit-content;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+}
+
+/* ---------- PROGRAMA en horizontal ---------- */
+#LineaTiempo{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    border-top: 6px solid rgb(0, 63, 119); /* esta es la línea azul */
+}
+
+#LineaTiempo li{
+    flex: 1;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+}
+
+.Hora{
+    display: block;
+    width: fit-content;
+    margin: -22px auto 15px auto; /* el margen negativo sube el círculo sobre la línea */
+    background-color: rgb(255, 214, 0);
+    color: rgb(0, 63, 119);
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 8px 18px 8px 18px;
+}
+
+#LineaTiempo h3{
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(0, 63, 119);
+}
+
+/* ---------- TARJETAS (foros y centros) ---------- */
+.tarjeta{
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    height: 100%;
+}
+
+.tarjeta h3{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.Anio{
+    color: rgb(0, 63, 119);
+    font-weight: 800;
+}
+
+.TarjetaCentro{
+    background-color: rgb(0, 63, 119);
+    color: white;
+    text-align: center;
+}
+
+.TarjetaCentro p{
+    color: rgb(255, 214, 0);
+}
+
+/* ---------- REELS ---------- */
+.Reel{
+    background-color: rgb(0, 63, 119);
+    color: white;
+    border-radius: 20px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    position: relative;
+}
+
+.Reel h3{
+    font-size: 20px;
+}
+
+.Play{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    margin-left: -32px;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    border-radius: 50%;
+    background-color: rgb(255, 214, 0);
+    color: rgb(0, 63, 119);
+    font-size: 26px;
+    text-align: center;
+}
+
+#EnlacesCentros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 50px;
+}
+
+/* ---------- REGISTRO ---------- */
+#FormularioRegistro{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    max-width: 600px;
+    margin-top: 30px;
+}
+
+/* ---------- PIE DE PÁGINA ---------- */
+footer{
+    background-color: rgb(238, 240, 243);
+    color: rgb(90, 98, 112);
+    padding: 50px 0px 20px 0px;
+}
+
+footer a{
+    color: rgb(0, 63, 119);
+    text-decoration: none;
+}
+
+/* ---------- MÓVIL: pantallas pequeñas ---------- */
+@media (max-width: 767px){
+    header{
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px 15px 20px;
+    }
+
+    #Titulo{
+        font-size: 30px;
+    }
+
+    .CajaTiempo{
+        width: 70px;
+    }
+
+    .Numero{
+        font-size: 28px;
+    }
+
+    /* el programa pasa a vertical para que quepa */
+    #LineaTiempo{
+        flex-direction: column;
+        border-top: none;
+        gap: 25px;
+    }
+
+    .Hora{
+        margin-top: 0px;
+    }
+}
