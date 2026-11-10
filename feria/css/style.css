@@ -1,13 +1,9 @@
-/* Colores institucionales:
-   azul rgb(0, 63, 119) | amarillo rgb(255, 214, 0) | gris rgb(238, 240, 243) | blanco */
-
 body{
     font-family: 'Montserrat', sans-serif;
     color: rgb(28, 36, 48);
     background-color: white;
 }
 
-/* ---------- MENÚ ---------- */
 header{
     background-color: rgb(0, 63, 119);
     color: white;
@@ -15,7 +11,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky; /* el menú se queda arriba al hacer scroll */
+    position: sticky;
     top: 0px;
     z-index: 10;
 }
@@ -51,7 +47,6 @@ header ul{
     color: rgb(255, 214, 0);
 }
 
-/* ---------- BOTONES: esquinas redondeadas y efecto al pasar el ratón ---------- */
 .boton1, .boton2{
     display: inline-block;
     font-weight: bold;
@@ -63,7 +58,6 @@ header ul{
     transition: 0.2s;
 }
 
-/* Azul con texto amarillo */
 .boton1{
     background-color: rgb(0, 63, 119);
     color: rgb(255, 214, 0);
@@ -76,7 +70,6 @@ header ul{
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* Amarillo con texto azul (para fondos azules) */
 .boton2{
     background-color: rgb(255, 214, 0);
     color: rgb(0, 63, 119);
@@ -89,7 +82,6 @@ header ul{
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* ---------- INICIO: título y contador ---------- */
 #Inicio{
     background-color: rgb(0, 63, 119);
     color: white;
@@ -136,7 +128,6 @@ header ul{
     gap: 15px;
 }
 
-/* ---------- SECCIONES: mucho espacio entre ellas ---------- */
 .Seccion{
     padding: 80px 0px 80px 0px;
 }
@@ -155,13 +146,12 @@ header ul{
     margin-bottom: 50px;
 }
 
-/* ---------- PROGRAMA en horizontal ---------- */
 #LineaTiempo{
     display: flex;
     list-style: none;
     padding: 0px;
     margin: 0px;
-    border-top: 6px solid rgb(0, 63, 119); /* esta es la línea azul */
+    border-top: 6px solid rgb(0, 63, 119);
 }
 
 #LineaTiempo li{
@@ -173,7 +163,7 @@ header ul{
 .Hora{
     display: block;
     width: fit-content;
-    margin: -22px auto 15px auto; /* el margen negativo sube el círculo sobre la línea */
+    margin: -22px auto 15px auto;
     background-color: rgb(255, 214, 0);
     color: rgb(0, 63, 119);
     font-weight: bold;
@@ -187,7 +177,6 @@ header ul{
     color: rgb(0, 63, 119);
 }
 
-/* ---------- TARJETAS (foros y centros) ---------- */
 .tarjeta{
     background-color: white;
     border-radius: 16px;
@@ -216,7 +205,6 @@ header ul{
     color: rgb(255, 214, 0);
 }
 
-/* ---------- REELS ---------- */
 .Reel{
     background-color: rgb(0, 63, 119);
     color: white;
@@ -258,7 +246,6 @@ header ul{
     margin-top: 50px;
 }
 
-/* ---------- REGISTRO ---------- */
 #FormularioRegistro{
     background-color: white;
     border-radius: 15px;
@@ -268,7 +255,6 @@ header ul{
     margin-top: 30px;
 }
 
-/* ---------- PIE DE PÁGINA ---------- */
 footer{
     background-color: rgb(238, 240, 243);
     color: rgb(90, 98, 112);
@@ -280,7 +266,6 @@ footer a{
     text-decoration: none;
 }
 
-/* ---------- MÓVIL: pantallas pequeñas ---------- */
 @media (max-width: 767px){
     header{
         flex-direction: column;
@@ -300,7 +285,6 @@ footer a{
         font-size: 28px;
     }
 
-    /* el programa pasa a vertical para que quepa */
     #LineaTiempo{
         flex-direction: column;
         border-top: none;

@@ -7,26 +7,22 @@ if (isset($_POST["correo"]) && isset($_POST["clave"])) {
     $correo = strtolower(trim($_POST["correo"]));
     $clave = $_POST["clave"];
 
-    // Buscamos al usuario por su correo
     $sentencia = mysqli_prepare($conexion, "SELECT id, nombre, tipo, clave_hash, bloqueado FROM usuarios WHERE correo = ?");
     mysqli_stmt_bind_param($sentencia, "s", $correo);
     mysqli_stmt_execute($sentencia);
     $resultado = mysqli_stmt_get_result($sentencia);
-    $usuario = mysqli_fetch_assoc($resultado); // array con los datos, o null si no existe
+    $usuario = mysqli_fetch_assoc($resultado);
 
     if ($usuario == null) {
         $error = "Correo o contraseña incorrectos.";
     } else if ($usuario["bloqueado"] == 1) {
         $error = "Cuenta bloqueada por demasiados intentos fallidos. Contacta con la organización.";
     } else if (password_verify($clave, $usuario["clave_hash"])) {
-        // password_verify compara la contraseña escrita con la cifrada de la base de datos
 
-        // Entrada correcta: ponemos los intentos fallidos a 0
         $sentencia = mysqli_prepare($conexion, "UPDATE usuarios SET intentos_fallidos = 0 WHERE id = ?");
         mysqli_stmt_bind_param($sentencia, "i", $usuario["id"]);
         mysqli_stmt_execute($sentencia);
 
-        // Guardamos los datos en la sesión
         session_regenerate_id(true);
         $_SESSION["id"] = $usuario["id"];
         $_SESSION["nombre"] = $usuario["nombre"];
@@ -35,7 +31,7 @@ if (isset($_POST["correo"]) && isset($_POST["clave"])) {
         header("Location: stands.php");
         exit;
     } else {
-        // Contraseña mal: sumamos 1 fallo (el trigger bloquea la cuenta al llegar a 5)
+
         $sentencia = mysqli_prepare($conexion, "UPDATE usuarios SET intentos_fallidos = intentos_fallidos + 1 WHERE id = ?");
         mysqli_stmt_bind_param($sentencia, "i", $usuario["id"]);
         mysqli_stmt_execute($sentencia);

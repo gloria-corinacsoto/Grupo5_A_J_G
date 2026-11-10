@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- La variable $titulo la definimos en cada página antes de hacer el include -->
+
         <title><?php echo limpiar($titulo); ?> - LSBM 2027</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
             <ul>
                 <li><a class="EnlaceMenu" href="../index.html">INICIO</a></li>
                 <?php
-                // El menú cambia si hay una sesión iniciada o no
+
                 if (isset($_SESSION["id"])) {
                     echo "<li><a class='EnlaceMenu' href='stands.php'>STANDS</a></li>";
                     if ($_SESSION["tipo"] == "empresa") {

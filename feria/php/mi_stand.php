@@ -1,7 +1,6 @@
 <?php
 include "conexion.php";
 
-// Si no hay sesión iniciada, mandamos al login
 if (!isset($_SESSION["id"])) {
     header("Location: login.php");
     exit;
@@ -10,7 +9,6 @@ if (!isset($_SESSION["id"])) {
 $id_usuario = $_SESSION["id"];
 $mensaje = "";
 
-// Solo las empresas tienen stand
 if ($_SESSION["tipo"] != "empresa") {
     $titulo = "Mi stand";
     include "cabecera.php";
@@ -19,7 +17,6 @@ if ($_SESSION["tipo"] != "empresa") {
     exit;
 }
 
-// Buscamos si la empresa ya tiene un stand creado
 $sentencia = mysqli_prepare($conexion, "SELECT * FROM stands WHERE usuario_id = ?");
 mysqli_stmt_bind_param($sentencia, "i", $id_usuario);
 mysqli_stmt_execute($sentencia);
@@ -27,14 +24,13 @@ $resultado = mysqli_stmt_get_result($sentencia);
 $stand = mysqli_fetch_assoc($resultado);
 
 if ($stand == null) {
-    // Todavía no tiene stand: preparamos un array vacío para el formulario
+
     $stand_existe = false;
     $stand = array("nombre"=>"", "logo_url"=>"", "web_url"=>"", "videoconferencia_url"=>"", "horario"=>"manana", "spot_url"=>"");
 } else {
     $stand_existe = true;
 }
 
-// Si se ha enviado el formulario
 if (isset($_POST["nombre"]) && isset($_POST["logo_url"]) && isset($_POST["web_url"]) && isset($_POST["videoconferencia_url"]) && isset($_POST["horario"]) && isset($_POST["spot_url"])) {
 
     $nombre = trim($_POST["nombre"]);
@@ -44,7 +40,6 @@ if (isset($_POST["nombre"]) && isset($_POST["logo_url"]) && isset($_POST["web_ur
     $horario = $_POST["horario"];
     $spot_url = trim($_POST["spot_url"]);
 
-    // Guardamos lo escrito en el array para que el formulario no se vacíe
     $stand["nombre"] = $nombre;
     $stand["logo_url"] = $logo_url;
     $stand["web_url"] = $web_url;
@@ -52,31 +47,30 @@ if (isset($_POST["nombre"]) && isset($_POST["logo_url"]) && isset($_POST["web_ur
     $stand["horario"] = $horario;
     $stand["spot_url"] = $spot_url;
 
-    // Comprobamos los datos (filter_var comprueba que sea una dirección web válida)
     $datos_ok = true;
     if ($nombre == "") { $datos_ok = false; }
     if (!filter_var($logo_url, FILTER_VALIDATE_URL)) { $datos_ok = false; }
     if (!filter_var($web_url, FILTER_VALIDATE_URL)) { $datos_ok = false; }
     if (!filter_var($videoconferencia_url, FILTER_VALIDATE_URL)) { $datos_ok = false; }
-    // El spot es opcional, pero si lo escriben tiene que ser una dirección válida
+
     if ($spot_url != "" && !filter_var($spot_url, FILTER_VALIDATE_URL)) { $datos_ok = false; }
     if ($horario != "manana" && $horario != "tarde") { $datos_ok = false; }
 
     if (!$datos_ok) {
         $mensaje = "Revisa los datos: faltan campos o alguna dirección web no es válida.";
     } else {
-        // Si el spot está vacío guardamos NULL en la base de datos
+
         $spot_bd = $spot_url;
         if ($spot_bd == "") {
             $spot_bd = null;
         }
 
         if ($stand_existe) {
-            // Ya tenía stand: lo modificamos
+
             $sentencia = mysqli_prepare($conexion, "UPDATE stands SET nombre = ?, logo_url = ?, web_url = ?, videoconferencia_url = ?, horario = ?, spot_url = ? WHERE usuario_id = ?");
             mysqli_stmt_bind_param($sentencia, "ssssssi", $nombre, $logo_url, $web_url, $videoconferencia_url, $horario, $spot_bd, $id_usuario);
         } else {
-            // No tenía stand: lo creamos
+
             $sentencia = mysqli_prepare($conexion, "INSERT INTO stands (usuario_id, nombre, logo_url, web_url, videoconferencia_url, horario, spot_url) VALUES (?, ?, ?, ?, ?, ?, ?)");
             mysqli_stmt_bind_param($sentencia, "issssss", $id_usuario, $nombre, $logo_url, $web_url, $videoconferencia_url, $horario, $spot_bd);
         }
